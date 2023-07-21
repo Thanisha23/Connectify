@@ -6,6 +6,11 @@ export default {
       fontFamily: {
         Lilita: ["Lilita One", "cursive"],
       },
+      backgroundImage: {
+        "bg-3": "url('./public/assets/bg-3.png')",
+        depth: "url('./src/images/depth.png')",
+        footer: "url('./src/images/footer.jpg')",
+      },
     },
   },
   plugins: [],
