@@ -2,7 +2,7 @@ import ball from "../images/ball.png";
 import Footer from "../components/Footer";
 const Working = () => {
   return (
-    <div className="w-screen h-[70rem] bg-bg-3 bg-cover bg-start relative shadow-2xl">
+    <div className="w-screen h-[73rem] bg-bg-3 bg-cover bg-start relative shadow-2xl">
       <div className="mx-auto w-[80rem] h-[18rem] absolute top-[15rem] left-0 right-0 bottom-0 bg-depth bg-start bg-cover bg-white rounded-[4rem] mt-[2rem]">
         <card className="bg-[#ffcc00] w-[15rem] h-[16rem] absolute bottom-[11rem] left-[3rem] rounded-[3rem] z-20 shadow-2xl">
           <center className="p-[1rem]">

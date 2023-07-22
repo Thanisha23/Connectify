@@ -9,7 +9,8 @@ export default {
       backgroundImage: {
         "bg-3": "url('./public/assets/bg-3.png')",
         depth: "url('./src/images/depth.png')",
-        footer: "url('./src/images/footer.jpg')",
+        footer: "url('./src/images/nnnoise.svg')",
+        "footer-1": "url('./src/images/footer-1.svg')",
       },
     },
   },
