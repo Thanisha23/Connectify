@@ -37,7 +37,7 @@ const Main = () => {
             <p className="text-5xl font-Lilita mb-[0.5rem]">with Friends!</p>
           </div>
           <div className="grid grid-cols-2 ml-[3rem] relative p-[2rem]">
-            <card className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl ">
+            <div className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl ">
               <img
                 className="rounded-full w-[7rem] h-[7rem]  shadow-2xl ml-[10rem] absolute top-0 bottom-5 left-2"
                 src={feat1}
@@ -54,8 +54,8 @@ const Main = () => {
                   Friends & Family
                 </p>
               </article>
-            </card>
-            <card className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl">
+            </div>
+            <div className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl">
               <img
                 className="rounded-full w-[7rem] h-[7rem]  shadow-2xl ml-[10rem] absolute top-0 bottom-5 left-[19rem]"
                 src={feat2}
@@ -72,8 +72,8 @@ const Main = () => {
                   Go Viral with Our Trending Topics
                 </p>
               </article>
-            </card>
-            <card className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl mt-[2rem]">
+            </div>
+            <div className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl rounded-2xl mt-[2rem]">
               <img
                 className="rounded-full w-[7rem] h-[7rem]  shadow-2xl ml-[10rem] absolute top-[14.5rem] left-2"
                 src={feat3}
@@ -89,8 +89,8 @@ const Main = () => {
                   Thoughts through Posts
                 </p>
               </article>
-            </card>
-            <card className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl  rounded-2xl mt-[2rem]">
+            </div>
+            <div className="w-[14rem] h-[12rem] bg-yellow-300 shadow-2xl  rounded-2xl mt-[2rem]">
               <img
                 className="rounded-full w-[7rem] h-[7rem]  shadow-2xl  ml-[10rem] absolute top-[14.5rem] right-20"
                 src={feat3}
@@ -106,7 +106,7 @@ const Main = () => {
                   Updates
                 </p>
               </article>
-            </card>
+            </div>
           </div>
         </section>
       </div>
