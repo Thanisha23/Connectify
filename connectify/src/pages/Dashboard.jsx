@@ -42,13 +42,7 @@ const Dashboard = () => {
             withCredentials: true,
           }
         );
-
-        if (data.success) {
-          setUser(data.user);
-        } else {
-          // Redirect to login if user is not authenticated
-          navigate("/login");
-        }
+        let username = data.user;
       } catch (error) {
         console.error("Error fetching profile:", error);
       }
@@ -59,7 +53,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>{user}</h1>
+      <h1></h1>
     </div>
   );
 };

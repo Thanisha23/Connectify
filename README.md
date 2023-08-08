@@ -1,5 +1,9 @@
 # Connectify - Social Media App
 
+<p align="center">
+  <img src="./connectify//src/images/githubreadme.jpg" alt="Connectify" width="300">
+</p>
+
 Connectify is a **social media app** that aims to bring people together by providing a platform for connecting, sharing, and inspiring each other. With Connectify, you can create an account, log in, and start sharing your life's moments through photos, videos, and stories. Join a vibrant community of friends, both new and old, who share your interests, and stay informed about the latest news and updates.
 
 ## Features
@@ -31,4 +35,3 @@ Stay tuned for more updates as the development of Connectify continues to evolve
 Connectify is all about building connections and fostering a sense of community. Whether you want to share your life's moments, discover new interests, or engage with others, Connectify provides the perfect platform for socializing online.
 
 Join us in our journey to connect the world with Connectify!
-
