@@ -1,7 +1,7 @@
 # Connectify - Social Media App
 
 <p align="center">
-  <img src="./connectify//src/images/githubreadme.jpg" alt="Connectify" width="700">
+  <img src="./connectify//src/images/githubreadme.jpg" alt="Connectify" width=100%>
 </p>
 
 Connectify is a **social media app** that aims to bring people together by providing a platform for connecting, sharing, and inspiring each other. With Connectify, you can create an account, log in, and start sharing your life's moments through photos, videos, and stories. Join a vibrant community of friends, both new and old, who share your interests, and stay informed about the latest news and updates.
