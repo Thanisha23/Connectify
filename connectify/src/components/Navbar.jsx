@@ -1,5 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../main";
+
 const Navbar = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  console.log(isAuthenticated);
   return (
     <div className="justify-start items-start flex gap-[9rem] font-Lilita  w-screen bg-gray-100 fixed top-0 left-0 z-50 shadow-lg">
       <div className="text-5xl ml-[2rem] mt-[1rem]">
@@ -23,9 +28,16 @@ const Navbar = () => {
       </div>
 
       <div className="text-xl p-[1rem] ml-[2.5rem]">
-        <button className="bg-yellow-400 w-[6rem] h-[3rem] rounded-t-[5rem] rounded-br-[5rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out">
-          <Link to="/login">Login &rarr;</Link>
-        </button>
+        {isAuthenticated ? (
+          <button className="bg-yellow-400 w-[6rem] h-[3rem] rounded-t-[5rem] rounded-br-[5rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out">
+            <Link to="/login">Logout &rarr;</Link>
+          </button>
+        ) : (
+          <button className="bg-yellow-400 w-[6rem] h-[3rem] rounded-t-[5rem] rounded-br-[5rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out">
+            <Link to="/login">Login &rarr;</Link>
+          </button>
+        )}
+
         <button className="bg-yellow-400 w-[6rem] h-[3rem] rounded-t-[5rem] rounded-br-[5rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out ml-[2rem]">
           <Link to="/signup">Signup &rarr;</Link>
         </button>
