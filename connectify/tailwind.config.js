@@ -7,6 +7,7 @@ export default {
         Lilita: ["Lilita One", "cursive"],
       },
       backgroundImage: {
+        banner: "url('./src/images/banner.jpg')",
         "bg-3": "url('./public/assets/bg-3.png')",
         depth: "url('./src/images/depth.png')",
         footer: "url('./src/images/nnnoise.svg')",

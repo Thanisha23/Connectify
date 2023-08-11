@@ -1,4 +1,4 @@
-import image from "../images/bg-2.png";
+import image from "../images/landing.png";
 import feat1 from "../images/feat-1.jpg";
 import feat2 from "../images/feat-2.jpg";
 import feat3 from "../images/feat-3.jpg";
@@ -15,7 +15,7 @@ const Main = () => {
             Let{"'"}s get started!!
           </button>
         </section>
-        <section className="mt-[12rem] ml-[5rem]">
+        <section className="mt-[7rem] ml-[5rem]">
           <img src={image} alt="hello" />
         </section>
       </div>

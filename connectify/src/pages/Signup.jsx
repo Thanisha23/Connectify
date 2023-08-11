@@ -1,18 +1,18 @@
 import welcomebg from "../images/welcome.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { HiArrowLeftCircle } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-// import { Context } from "../main";
-// import { useContext } from "react";
+import { Context } from "../main";
+import { useContext } from "react";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
   // const submitHandler = async (e) => {
   //   e.preventDefault();
   //   if (password !== confirmPassword) {
@@ -66,15 +66,15 @@ const Signup = () => {
         }
       );
       toast.success(data.message);
-      // setIsAuthenticated(true);
+      setIsAuthenticated(true);
     } catch (error) {
       toast.error("Error registering user.");
       console.log(error);
-      // setIsAuthenticated(false);
+      setIsAuthenticated(false);
     }
   };
 
-  // if (isAuthenticated) return <Navigate to={"/dashboard"} />;
+  if (isAuthenticated) return <Navigate to={"/dashboard"} />;
 
   return (
     <div className="bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-600">
