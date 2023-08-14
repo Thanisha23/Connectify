@@ -6,12 +6,16 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../main";
+import { useContext } from "react";
 const Login = () => {
+  const { setIsAuthenticated, loading, setLoading } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const { data } = await axios.post(
@@ -29,12 +33,16 @@ const Login = () => {
       );
 
       if (data.success) {
-        toast.success("Logged in successfully.");
+        toast.success(data.message);
+        setIsAuthenticated(true);
+        setLoading(false);
         navigate("/dashboard");
         // navigate("/dashboard"); // Navigate to the DashboardComponent after successful login
       }
     } catch (error) {
       toast.error("Invalid email or password.");
+      setIsAuthenticated(false);
+      setLoading(false);
     }
   };
 
@@ -90,6 +98,7 @@ const Login = () => {
               </div>
               <div className="mb-2 mt-1">
                 <button
+                  disabled={loading}
                   type="submit"
                   className=" mb-[1rem] w-full bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-300 text-black py-2 px-4 rounded-lg hover:bg-gradient-to-br hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-600"
                 >

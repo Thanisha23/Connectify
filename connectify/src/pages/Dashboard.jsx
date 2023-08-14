@@ -1,100 +1,21 @@
-// import { useState } from "react";
-// const Dashboard = () => {
-//   const [editMode, setEditMode] = useState(false);
-//   const [userBio, setUserBio] = useState("A passionate coder");
-//   const yellowColor = "from-yellow-300 to-yellow-400"; // Gradient color classes
-
-//   const handleBioChange = (e) => {
-//     setUserBio(e.target.value);
-//   };
-
-//   const toggleEditMode = () => {
-//     setEditMode(!editMode);
-//   };
-
-//   const userPosts = [
-//     {
-//       id: 1,
-//       imageUrl: "post-image-1.jpg",
-//       caption: "Enjoying the sunset 🌅",
-//       timestamp: "2 hours ago",
-//     },
-//     {
-//       id: 2,
-//       imageUrl: "post-image-2.jpg",
-//       caption: "Exploring new places 🌎",
-//       timestamp: "5 hours ago",
-//     },
-//     // Add more user posts here
-//   ];
-
-//   return (
-//     <div className="flex p-8">
-//       {/* Profile Section */}
-//       <div className="w-1/4 pr-8">
-//         <div className={`bg-gradient-to-b ${yellowColor} p-4 rounded shadow`}>
-//           <div className="flex items-center">
-//             <img
-//               src="../images/avatar.png" // Replace with the actual image source
-//               alt="User Profile"
-//               className="w-[3rem] h-[2rem] rounded-full object-cover mr-4"
-//             />
-//             <div>
-//               <h2 className="text-lg font-semibold">User Name</h2>
-//               {editMode ? (
-//                 <button
-//                   onClick={toggleEditMode}
-//                   className="text-gray-700 hover:text-gray-900"
-//                 >
-//                   Cancel
-//                 </button>
-//               ) : (
-//                 <button
-//                   onClick={toggleEditMode}
-//                   className="text-gray-700 hover:text-gray-900"
-//                 >
-//                   Edit Profile
-//                 </button>
-//               )}
-//             </div>
-//           </div>
-//           {editMode ? (
-//             <textarea
-//               value={userBio}
-//               onChange={handleBioChange}
-//               className="w-full mt-2 p-2 border rounded"
-//             />
-//           ) : (
-//             <p className="mt-2 text-gray-700">{userBio}</p>
-//           )}
-//         </div>
-//       </div>
-
-//       {/* User Posts */}
-//       <div className="w-3/4">
-//         {userPosts.map((post) => (
-//           <div key={post.id} className="bg-white rounded shadow mb-4">
-//             <img
-//               src={post.imageUrl}
-//               alt={post.caption}
-//               className="w-full h-48 object-cover rounded-t"
-//             />
-//             <div className="p-4">
-//               <p className="text-gray-700">{post.caption}</p>
-//               <p className="text-gray-400 text-sm mt-2">{post.timestamp}</p>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
+import Navbar from "../components/Navbar";
 import profile from "../images/profile.png";
+import { Context } from "../main";
+import { useContext } from "react";
+import Loader from "../components/Loader";
 const Dashboard = () => {
-  return (
+  const { isAuthenticated, loading, user } = useContext(Context);
+  console.log(user);
+  // return (
+  //   <div>
+  //     <h1>{user ? user.name : "hello"}</h1>
+  //   </div>
+  // );
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="container flex justify-center font-Lilita bg-banner bg-cover ">
+      <Navbar />
       <div className="profile-card w-[clamp(428px,990px,990px)] h-[660px] bg-white border-2 border-accent-bg rounded-xl grid grid-rows-[220px,auto] overflow-auto m-[3rem] pr-[2rem] pl-[2rem] ">
         {/* Profile Header Section */}
         <div
@@ -107,7 +28,9 @@ const Dashboard = () => {
               <img className="w-[150px] h-[150px] " src={profile} alt="user" />
             </div>
             <div className="profile-names flex flex-col justify-center bg-primary-bg text-primary-color px-30px rounded-r-[50px] transform translate-x-[-10px]">
-              <h1 className="username font-Lilita text-xl">Thanisha</h1>
+              <h1 className="username font-Lilita text-xl">
+                {user ? user.name : "sai"}
+              </h1>
               <small className="page-title text-secondary-color">
                 Front-End developer
               </small>

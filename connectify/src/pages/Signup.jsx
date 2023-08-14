@@ -12,7 +12,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+    useContext(Context);
   // const submitHandler = async (e) => {
   //   e.preventDefault();
   //   if (password !== confirmPassword) {
@@ -42,6 +43,7 @@ const Signup = () => {
   // };
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (password !== confirmPassword) {
       toast.error("Passwords do not match.");
@@ -67,10 +69,12 @@ const Signup = () => {
       );
       toast.success(data.message);
       setIsAuthenticated(true);
+      setLoading(false);
     } catch (error) {
       toast.error("Error registering user.");
       console.log(error);
       setIsAuthenticated(false);
+      setLoading(false);
     }
   };
 
@@ -155,6 +159,7 @@ const Signup = () => {
                 />
               </div>
               <button
+                disabled={loading}
                 type="submit"
                 className=" mb-[1rem] w-full bg-gradient-to-br from-yellow-600 via-yellow-400 to-yellow-300 text-black py-2 px-4 rounded-lg hover:bg-gradient-to-br hover:from-yellow-300 hover:via-yellow-400 hover:to-yellow-600"
               >
