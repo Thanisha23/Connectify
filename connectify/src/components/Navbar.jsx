@@ -25,6 +25,7 @@ const Navbar = () => {
       setIsAuthenticated(false);
       setLoading(false);
       navigate("/");
+      setUser({});
     } catch (error) {
       toast.error("Error logging out!");
       setIsAuthenticated(true);

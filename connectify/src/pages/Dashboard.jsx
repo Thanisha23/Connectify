@@ -1,21 +1,50 @@
 import Navbar from "../components/Navbar";
 import profile from "../images/profile.png";
 import { Context } from "../main";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Loader from "../components/Loader";
+import axios from "axios";
 const Dashboard = () => {
-  const { isAuthenticated, loading, user } = useContext(Context);
-  console.log(user);
+  const {
+    loading,
+    user,
+    setUser,
+    setIsAuthenticated,
+    setUserLoading,
+    userLoading,
+  } = useContext(Context);
+  // console.log(user);
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get("http://localhost:4000/api/v1/users/me", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUser(res.data.user);
+          setUserLoading(false);
+          setIsAuthenticated(true);
+        })
+        .catch(() => {
+          setUser({});
+          setUserLoading(false);
+          setIsAuthenticated(false);
+        });
+    }, 2000);
+  }, []);
+  if (loading) {
+    return <Loader />;
+  }
+
   // return (
   //   <div>
   //     <h1>{user ? user.name : "hello"}</h1>
   //   </div>
   // );
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <div className="container flex justify-center font-Lilita bg-banner bg-cover ">
       <Navbar />
+
       <div className="profile-card w-[clamp(428px,990px,990px)] h-[660px] bg-white border-2 border-accent-bg rounded-xl grid grid-rows-[220px,auto] overflow-auto m-[3rem] pr-[2rem] pl-[2rem] ">
         {/* Profile Header Section */}
         <div
@@ -28,9 +57,11 @@ const Dashboard = () => {
               <img className="w-[150px] h-[150px] " src={profile} alt="user" />
             </div>
             <div className="profile-names flex flex-col justify-center bg-primary-bg text-primary-color px-30px rounded-r-[50px] transform translate-x-[-10px]">
-              <h1 className="username font-Lilita text-xl">
-                {user ? user.name : "sai"}
-              </h1>
+              {userLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <h1 className="username font-Lilita text-xl">{user.name}</h1>
+              )}
               <small className="page-title text-secondary-color">
                 Front-End developer
               </small>
