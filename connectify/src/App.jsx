@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { Toaster } from "react-hot-toast";
-import PrivateRoutes from "./components/PrivateRoutes";
+// import PrivateRoutes from "./components/PrivateRoutes";
 // import { Context } from "./main";
 // import axios from "axios";
 // import { useContext } from "react";
@@ -34,9 +34,9 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
+        {/* <Route element={<PrivateRoutes />}> */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        {/* </Route> */}
       </Routes>
       <Toaster />
     </BrowserRouter>
