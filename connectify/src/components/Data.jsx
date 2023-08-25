@@ -1,7 +1,7 @@
 import { RxDashboard } from "react-icons/rx";
 import { AiTwotoneFire } from "react-icons/ai";
 import { CiSaveDown2 } from "react-icons/ci";
-import { FiLogOut } from "react-icons/fi";
+
 import { FaUser } from "react-icons/fa";
 import { AiOutlineMessage } from "react-icons/ai";
 import { IoSettings } from "react-icons/io5";
@@ -36,11 +36,5 @@ export const datas = [
     id: 6,
     icon: <IoSettings />,
     text: "Settings",
-  },
-
-  {
-    id: 8,
-    icon: <FiLogOut />,
-    text: "Logout",
   },
 ];

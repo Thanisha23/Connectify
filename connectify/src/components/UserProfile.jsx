@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import userimg from "../images/profile.png";
+import { Context } from "../main";
+import { useContext } from "react";
 const UserProfile = (props) => {
+  const { user, userLoading } = useContext(Context);
   return (
     <div
       className={`flex gap-5 items-center ${
@@ -20,7 +23,14 @@ const UserProfile = (props) => {
       {/* <div className={`${props.toggle ? "text-black" : "text-white"}`}
           > */}
       <div className={props.toggle ? "opacity-0 delay-200" : "text-white"}>
-        <h3 className="text-xl">Mahakal</h3>
+        <h3 className="text-xl">
+          {" "}
+          {userLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <p className="username font-Lilita text-xl">{user.name}</p>
+          )}
+        </h3>
         <span className="text-[0.75rem] opacity-60 ">Sai@gmail.com</span>
       </div>
     </div>
