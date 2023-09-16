@@ -36,6 +36,9 @@ const SidebarData = (props) => {
       {datas.map((data) => {
         return (
           <div
+            onClick={() => {
+              navigate(data.navigateTo);
+            }}
             className={`${
               props.toggle ? "last:w-[3.6rem]" : "last:w-[17rem]"
             } flex items-center mt-2 p-4 rounded-lg cursor-pointer hover:bg-white transition-all duration-300 last:absolute left-4 bottom-4`}

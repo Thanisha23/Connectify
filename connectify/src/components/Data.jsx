@@ -11,30 +11,36 @@ export const datas = [
     id: 1,
     icon: <RxDashboard />,
     text: "Dashboard",
+    navigateTo: "/dashboard",
   },
   {
     id: 2,
     icon: <AiTwotoneFire />,
     text: "Trending",
+    navigateTo: "/trending",
   },
   {
     id: 3,
     icon: <CiSaveDown2 />,
     text: "Saved Posts",
+    navigateTo: "/mysavedposts",
   },
   {
     id: 4,
     icon: <FaUser />,
     text: "My Profile",
+    navigateTo: "/myprofile",
   },
   {
     id: 5,
     icon: <AiOutlineMessage />,
     text: "Messages",
+    navigateTo: "/mymessages",
   },
   {
     id: 6,
     icon: <IoSettings />,
     text: "Settings",
+    navigateTo: "/mysettings",
   },
 ];

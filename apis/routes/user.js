@@ -5,6 +5,7 @@ import {
   login,
   getMyProfile,
   logout,
+  update,
 } from "../controllers/user.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
@@ -15,6 +16,7 @@ router.get("/all", getAllUsers);
 router.post("/new", register);
 router.post("/login", login);
 router.get("/logout", logout);
+router.put("/update", isAuthenticated, update);
 
 router.get("/me", isAuthenticated, getMyProfile);
 // ===========================================================

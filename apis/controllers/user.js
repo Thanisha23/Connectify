@@ -30,6 +30,39 @@ export const login = async (req, res, next) => {
   }
 };
 
+export const update = async (req, res) => {
+  try {
+    // Get the user ID from the authenticated user (req.user)
+    const userId = req.user._id;
+
+    // Extract the fields you want to update from the request body
+    const { name } = req.body;
+
+    console.log("UserId", userId);
+    console.log("Updated name:", name);
+    // Find the user by their ID and update the specified fields
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
+      { name },
+      { new: true } // Return the updated user document
+    );
+
+    console.log("Updated User:", updatedUser);
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Send the updated user object as a response
+    res.status(200).json({
+      success: true,
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 export const register = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;

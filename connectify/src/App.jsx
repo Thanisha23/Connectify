@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { Toaster } from "react-hot-toast";
+import MyProfile from "./components/MyProfile";
 // import PrivateRoutes from "./components/PrivateRoutes";
 // import { Context } from "./main";
 // import axios from "axios";
@@ -36,7 +37,7 @@ const App = () => {
         <Route path="signup" element={<Signup />} />
         {/* <Route element={<PrivateRoutes />}> */}
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* </Route> */}
+        <Route path="/myprofile" element={<MyProfile />} />
       </Routes>
       <Toaster />
     </BrowserRouter>

@@ -31,7 +31,7 @@ const UserProfile = (props) => {
             <p className="username font-Lilita text-xl">{user.name}</p>
           )}
         </h3>
-        <span className="text-[0.75rem] opacity-60 ">Sai@gmail.com</span>
+        <span className="text-[0.75rem] opacity-60 ">{user.email}</span>
       </div>
     </div>
   );
