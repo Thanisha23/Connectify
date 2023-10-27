@@ -3,9 +3,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import ChatRoom from "./pages/ChatRoom";
 import { Toaster } from "react-hot-toast";
-import MyProfile from "./components/MyProfile";
-// import PrivateRoutes from "./components/PrivateRoutes";
+import MyProfile from "./pages/MyProfile";
+// import MyMessages from "./pages/myMessages/MyMessages";
+import PrivateRoutes from "./components/PrivateRoutes";
 // import { Context } from "./main";
 // import axios from "axios";
 // import { useContext } from "react";
@@ -35,9 +37,12 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-        {/* <Route element={<PrivateRoutes />}> */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/myprofile" element={<MyProfile />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/myprofile" element={<MyProfile />} />
+          <Route path="/mymessages" element={<ChatRoom />} />
+          {/* <Route path="/mymessages" element={<MyMessages />} /> */}
+        </Route>
       </Routes>
       <Toaster />
     </BrowserRouter>

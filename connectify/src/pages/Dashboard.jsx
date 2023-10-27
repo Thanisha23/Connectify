@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import profile from "../images/profile.png";
 import { Context } from "../main";
 import { useContext, useEffect } from "react";
@@ -171,6 +171,109 @@ const Dashboard = () => {
     // </div>
     <div className="w-full h-screen bg-banner bg-cover flex items-center bg-no-repeat">
       <Sidebar />
+      <div className="profile-card w-[clamp(428px,990px,990px)] h-[640px] bg-white border-2 border-accent-bg rounded-xl grid grid-rows-[220px,auto] overflow-auto m-[3rem] pr-[2rem] pl-[2rem] ">
+        {/* Profile Header Section */}
+        <div
+          className="profile-header bg-center bg-cover rounded-t-[30px] relative"
+          style={{ backgroundImage: "url(/images/banner.jpg)" }}
+        >
+          <div className="main-profile absolute inset-y-[calc(100%-75px)] left-70px flex items-center gap-[2rem]">
+            {/* <div className="profile-image w-150px h-150px bg-center bg-cover rounded-full border-10 border-primary-bg bg-["></div> */}
+            <div>
+              <img className="w-[150px] h-[150px] " src={profile} alt="user" />
+            </div>
+            <div className="profile-names flex flex-col justify-center bg-primary-bg text-primary-color px-30px rounded-r-[50px] transform translate-x-[-10px]">
+              {/* <h1 className="username font-Lilita text-xl">Thanisha</h1> */}
+              <h1 className="username font-Lilita text-2xl">
+                {user ? user.name : "sai"}
+              </h1>
+              <small className="page-title text-secondary-color">
+                Front-End developer
+              </small>
+            </div>
+          </div>
+        </div>
+        {/* Profile Body Section */}
+        <div className="profile-body grid grid-cols-[150px,300px] gap-[10rem] p-70px">
+          <div className="profile-actions grid grid-rows-[max-content,auto] gap-10px mt-30px">
+            <button className="bg-yellow-400 w-[8rem] h-[3rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out mt-[1rem] ml-[1rem] text-[1rem] rounded-lg">
+              Follow
+            </button>
+            <button className="bg-yellow-400 w-[8rem] h-[3rem] hover:bg-yellow-500 hover:transition hover:duration-700 ease-in-out mt-[1rem] ml-[1rem] text-[1rem] rounded-lg">
+              Message
+            </button>
+            <section className="bio bg-secondary-bg text-primary-color flex flex-col gap-10px p-10px rounded-10px">
+              <div className="bio-header flex gap-10px border-b border-border-color text-secondary-color">
+                <i className="fa fa-info-circle"></i>
+                My Post
+              </div>
+              {/* <p className="bio-text">Aspiring Frontend Developer</p> */}
+            </section>
+          </div>
+          <div className="account-info grid grid-rows-[1fr,1fr] mb-[10rem]">
+            <div className="data flex flex-col justify-between text-secondary-color p-30px text-center border border-border-color rounded-15px ">
+              <div className="important-data flex justify-between items-center bg-yellow-400 rounded-2xl p-[0.2rem] pl-[0.5rem] pr-[1rem]">
+                <section className="data-item">
+                  <h3 className="value">104</h3>
+                  <small className="title">Post</small>
+                </section>
+                <section className="data-item">
+                  <h3 className="value">21K</h3>
+                  <small className="title">Follower</small>
+                </section>
+                <section className="data-item">
+                  <h3 className="value">51</h3>
+                  <small className="title">Following</small>
+                </section>
+              </div>
+              <div className="other-data flex justify-between items-center bg-secondary-bg p-15px rounded-10px bg-yellow-400 rounded-2xl p-[0.2rem] pl-[0.5rem] pr-[1rem]">
+                <section className="data-item">
+                  <h3 className="value">41K</h3>
+                  <small className="title">Likes</small>
+                </section>
+                <section className="data-item">
+                  <h3 className="value">12K</h3>
+                  <small className="title">Comments</small>
+                </section>
+                <section className="data-item">
+                  <h3 className="value">2K</h3>
+                  <small className="title">Saved</small>
+                </section>
+              </div>
+            </div>
+            {/* <div className="social-media bg-secondary-bg text-secondary-color p-15px rounded-10px flex items-center gap-15px">
+              <span>Follow me in:</span>
+              <a href="" className="media-link">
+                <i className="fab fa-facebook-square"></i>
+              </a>
+              <a
+                href="https://twitter.com/MammadSahragard"
+                className="media-link"
+              >
+                <i className="fab fa-twitter-square"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mohammadsahragard/"
+                className="media-link"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/mammad.sahragard/"
+                className="media-link"
+              >
+                <i className="fab fa-instagram-square"></i>
+              </a>
+              <a
+                href="https://github.com/MohammadSahragard"
+                className="media-link"
+              >
+                <i className="fab fa-github-square"></i>
+              </a>
+            </div> */}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,8 @@
 import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
+import { config } from "dotenv";
+
+config({ path: process.ENV });
 export const isAuthenticated = async (req, res, next) => {
   const { token } = req.cookies;
   //   console.log(token);

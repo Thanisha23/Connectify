@@ -1,42 +1,55 @@
 import express from "express";
 import userRouter from "./routes/user.js";
+import chatRouter from "./routes/chat.js";
+import messageRouter from "./routes/message.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/error.js";
 import cors from "cors";
 export const app = express();
 
-config({
-  path: "./data/config.env",
-});
+// config({
+//   path: "./data/config.env",
+// });
+
+config({ path: process.ENV });
 
 //middleware
 app.use(express.json());
+// app.use(cors());
 //cookieparser..for importing the tokens after login so that user can take theiown info..in profile
 app.use(cookieParser());
-//using routes
-app.use("/api/v1/users", userRouter);
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access-Control-Allow-Origin",
+    ],
   })
 );
+//using routes
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/message", messageRouter);
 app.get("/", (req, res) => {
   res.send("Nice working");
 });
 //using error middleware
 app.use(errorMiddleware);
+
+// app.post("/users/new", async (req, res) => {
+//   const { name, email, password } = req.body;
+//   await User.create({
+//     name,
+//     email,
+//     password,
+//   })
+// );
 /*
-app.post("/users/new", async (req, res) => {
-  const { name, email, password } = req.body;
-  await User.create({
-    name,
-    email,
-    password,
-  });
-  
 //   await User.create({
 //     name: "Thanisha",
 //     email: "tanu@gmail.com",

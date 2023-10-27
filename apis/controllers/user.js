@@ -4,6 +4,10 @@ import { sendCookie } from "../utils/features.js";
 export const getAllUsers = async (req, res) => {};
 import jwt from "jsonwebtoken";
 import ErrorHandler from "../middlewares/error.js";
+
+import { config } from "dotenv";
+
+config({ path: process.ENV });
 export const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -90,6 +94,27 @@ export const getMyProfile = (req, res) => {
     success: true,
     user: req.user,
   });
+};
+
+export const getUser = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const user = await User.findById(id);
+    if (user) {
+      // const { name, email } = res.user;
+
+      res.status(200).json({
+        success: true,
+        name: user.name,
+        email: user.email,
+      });
+    } else {
+      res.status(404).json("No such User");
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
 };
 export const logout = (req, res) => {
   res
